@@ -1,0 +1,21 @@
+#home-heading, #home-body{
+    margin-top: 1em;
+    text-align: center;
+}
+#home-image{
+    margin-top: 1em;
+    width: 35vw;
+    margin-bottom: 0em;
+}
+#home-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#home-body{
+    width: 50vw;
+}
+#home-image-source{
+    margin-top: 0em;
+}

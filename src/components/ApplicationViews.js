@@ -3,6 +3,7 @@ import React, {Component} from 'react'
 import Home from './home/Home'
 import Login from './auth/Login'
 import Register from './auth/Register'
+import JavaScript from './languages/javascript/Javascript'
 
 class ApplicationViews extends Component{
     render(){
@@ -12,10 +13,13 @@ class ApplicationViews extends Component{
                     return <Home />
                 }} />
                 <Route path='/login' render={(props) =>{
-                    return <Login />
+                    return <Login {...props}/>
                 }} />
                 <Route path='/register' render={(props) =>{
-                    return <Register />
+                    return <Register {...props}/>
+                }} />
+                <Route path='/javascript' render={(props) => {
+                    return <JavaScript />
                 }} />
             </React.Fragment>
         )
