@@ -30,6 +30,6 @@
     ],
     "comments": [
         { "id": 1, "text": "comment text", "postId": 1, "userId": 2}
-        { "id": 2, "text": "more comment text", "postId": 2, "userId": 1},
+        { "id": 2, "text": "more comment text", "postId": 2, "userId": 1}
     ]
 }
