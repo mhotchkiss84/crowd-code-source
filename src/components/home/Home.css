@@ -1,4 +1,4 @@
-#home-heading, #home-body{
+#home-heading, #home-body, #main-heading{
     margin-top: 1em;
     text-align: center;
 }
@@ -7,13 +7,13 @@
     width: 35vw;
     margin-bottom: 0em;
 }
-#home-container{
+#main-container{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
-#home-body{
+#home-body, #main-body{
     width: 50vw;
 }
 #home-image-source{

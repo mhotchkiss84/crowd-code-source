@@ -4,7 +4,7 @@ class Home extends Component {
     render(){
         return(
             <React.Fragment>
-                <div id="home-container">
+                <div id="main-container">
                 <img id="home-image" src={require('./code.jpg')} alt="Code" />
                 <footer id="home-image-source">Image by <a href="https://unsplash.com/@pankajpatel" target="_blank">Pankaj Patel</a></footer>
                 <h2 id="home-heading">Welcome to Crowd Code Source</h2>

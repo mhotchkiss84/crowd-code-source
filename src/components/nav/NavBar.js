@@ -13,13 +13,6 @@ import {
 import './NavBar.css';
 
 class NavBar extends Component {
-
-	state = {
-		userid: ''
-	}
-
-	
-
 	render() {
 		return (
 			<React.Fragment>
@@ -49,8 +42,10 @@ class NavBar extends Component {
 					</NavDropdown>
 					<Nav className="mr-auto" />
 					<Nav>
-						<Nav.Link id="login-link" href="/login">Login</Nav.Link>
-						<Nav.Link href="/register">Register</Nav.Link>
+						<Nav.Link id="login-link" href="/login">
+							Login
+						</Nav.Link>
+						<Nav.Link id='register-link' href="/register">Register</Nav.Link>
 					</Nav>
 					<Form inline>
 						<FormControl type="text" placeholder="Search" className="mr-sm-2" />
