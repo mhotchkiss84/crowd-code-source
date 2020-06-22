@@ -1,3 +1,17 @@
-#nav-dropdown{
-    background: rgba(255, 165, 0, 0.73);
+#dropdown-button-drop-right {
+	margin-top: -6%;
+	padding: 14px 28px;
+	text-align: center;
+}
+#dropdown-menu-show {
+	width: 1% !important;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+.dropdown-menu {
+	min-width: 2rem !important;
+}
+#login-link.hide{
+    display: none;
 }
