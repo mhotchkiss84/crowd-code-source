@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import './Auth.css';
 import LoginManager from '../../modules/LoginManager';
-import App from '../../App';
+import ReactDOM from 'react-dom';
 class Login extends Component {
 	// Initial state
 	state = {
@@ -16,15 +16,11 @@ class Login extends Component {
 		this.setState(stateToChange);
 	};
 
-	handleAuthChange = () => {
-		App.changeAuth();
-	};
-
 	handleLogin = (e) => {
 		e.preventDefault();
 		LoginManager.authUser(this.state.email, this.state.password).then((user) => {
 			if (user.length === 0) {
-				window.alert('Invalid Login');
+				this.handleLoginErrors()
 			} else {
 				localStorage.setItem('userId', user[0].id);
 				localStorage.setItem('userName', user[0].userName);
@@ -33,6 +29,13 @@ class Login extends Component {
 			}
 		});
 	};
+
+	handleLoginErrors(){
+			return ReactDOM.render(
+				<p id="error-text">Invalid Login Credentials</p>,
+				document.getElementById('auth-error')
+			);
+	}
 
 	render() {
 		return (
@@ -64,6 +67,7 @@ class Login extends Component {
 							<Form.Group controlId="formBasicCheckbox">
 								<Form.Check type="checkbox" label="Remember Me" />
 							</Form.Group>
+							<div id="auth-error"/>
 							<Button variant="primary" type="submit">
 								Submit
 							</Button>

@@ -25,7 +25,7 @@ class ApplicationViews extends Component {
 				<Route
 					path="/register"
 					render={(props) => {
-						return <Register {...props} />;
+						return <Register {...props} changeAuth={this.props.changeAuth}/>;
 					}}
 				/>
 				<Route
