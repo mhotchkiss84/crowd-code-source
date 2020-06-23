@@ -1,46 +1,129 @@
 {
-	"users": [
-		{ "id": 1, "userName": "Mike", "email": "mike@email.com", "password": "1234" },
-		{ "id": 2, "userName": "Orby", "email": "orby@email.com", "password": "1234" }
-	],
-	"languages": [
-		{ "id": 1, "name": "javascript" },
-		{ "id": 2, "name": "Python" },
-		{ "id": 3, "name": "C++" },
-		{ "id": 4, "name": "C#" },
-		{ "id": 5, "name": "CSS" }
-	],
-	"frameworks": [
-		{ "id": 1, "name": "React", "languageId": 1 },
-		{ "id": 2, "name": "Bootstrap", "languageId": 5 },
-		{ "id": 3, "name": "Django", "languageId": 2 }
-	],
-	"category": [ { "id": 1, "name": "Strings" }, { "id": 2, "name": "Functions" }, { "id": 3, "name": "Variables" } ],
-	"posts": [
-		{
-			"id": 1,
-			"name": ".split()",
-			"type": "function",
-			"description": "splits stuff",
-			"languageId": 1,
-			"userId": 1,
-			"frameworkId": "",
-			"categoryId": "1"
-		},
-		{
-			"id": 2,
-			"name": ".pop()",
-			"type": "function",
-			"description": "pops stuff",
-			"languageId": 1,
-			"userId": 2,
-			"frameworkId": "",
-			"categoryId": "1"
-		}
-	],
-	"starredPosts": [ { "id": 1, "userId": 1, "postId": 1 }, { "id": 2, "userId": 2, "postId": 2 } ],
-	"comments": [
-		{ "id": 1, "text": "comment text", "postId": 1, "userId": 2 },
-		{ "id": 2, "text": "more comment text", "postId": 2, "userId": 1 }
-	]
+  "users": [
+    {
+      "id": 1,
+      "userName": "Mike",
+      "nonCaseUserName": "mike",
+      "email": "mike@email.com",
+      "nonCaseEmail": "mike@email.com",
+      "password": "1234"
+    },
+    {
+      "id": 2,
+      "userName": "Orby",
+      "nonCaseUserName": "orby",
+      "email": "orby@email.com",
+      "nonCaseEmail": "orby@email.com",
+      "password": "1234"
+    },
+    {
+      "userName": "tester",
+      "nonCaseUserName": "tester",
+      "email": "test@email.com",
+      "nonCaseEmail": "test@email.com",
+      "password": "1234",
+      "id": 3
+    }
+  ],
+  "languages": [
+    {
+      "id": 1,
+      "name": "javascript"
+    },
+    {
+      "id": 2,
+      "name": "Python"
+    },
+    {
+      "id": 3,
+      "name": "C++"
+    },
+    {
+      "id": 4,
+      "name": "C#"
+    },
+    {
+      "id": 5,
+      "name": "CSS"
+    }
+  ],
+  "frameworks": [
+    {
+      "id": 1,
+      "name": "React",
+      "languageId": 1
+    },
+    {
+      "id": 2,
+      "name": "Bootstrap",
+      "languageId": 5
+    },
+    {
+      "id": 3,
+      "name": "Django",
+      "languageId": 2
+    }
+  ],
+  "category": [
+    {
+      "id": 1,
+      "name": "Strings"
+    },
+    {
+      "id": 2,
+      "name": "Functions"
+    },
+    {
+      "id": 3,
+      "name": "Variables"
+    }
+  ],
+  "posts": [
+    {
+      "id": 1,
+      "name": ".split()",
+      "type": "function",
+      "description": "splits stuff",
+      "languageId": 1,
+      "userId": 1,
+      "frameworkId": "",
+      "categoryId": "1"
+    },
+    {
+      "id": 2,
+      "name": ".pop()",
+      "type": "function",
+      "description": "pops stuff",
+      "languageId": 1,
+      "userId": 2,
+      "frameworkId": "",
+      "categoryId": "1"
+    }
+  ],
+  "starredPosts": [
+    {
+      "id": 1,
+      "userId": 1,
+      "postId": 1
+    },
+    {
+      "id": 2,
+      "userId": 2,
+      "postId": 2
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "text": "comment text",
+      "postId": 1,
+      "userId": 2
+    },
+    {
+      "id": 2,
+      "text": "more comment text",
+      "postId": 2,
+      "userId": 1
+    }
+  ]
 }

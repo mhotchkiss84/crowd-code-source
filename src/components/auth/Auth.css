@@ -11,3 +11,8 @@
     margin-top: 2em;
     text-align: center;
 }
+#error-text{
+    margin-top: 1em;
+    color: red;
+    font-weight: bolder;
+}
