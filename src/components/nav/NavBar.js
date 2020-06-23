@@ -11,14 +11,43 @@ import {
 	ButtonGroup
 } from 'react-bootstrap';
 import './NavBar.css';
-
 class NavBar extends Component {
-
-	state = {
-		userid: ''
+	loggedOutNav() {
+		return (
+			<Nav>
+				<Nav.Link id="login-link" href="/login">
+					Login
+				</Nav.Link>
+				<Nav.Link id="register-link" href="/register">
+					Register
+				</Nav.Link>
+			</Nav>
+		);
 	}
 
-	
+	loggedInNav() {
+		return (
+			<Nav>
+				<Nav.Link id="register-link" href="#">
+					{localStorage.userName}
+				</Nav.Link>
+				<Nav.Link id="login-link" href="/" onClick={() => localStorage.clear()}>
+					Logout
+				</Nav.Link>
+			</Nav>
+		);
+	}
+
+	navAuth() {
+		let user = parseInt(localStorage.userId, 10);
+		if (isNaN(user) === true) {
+			return this.loggedOutNav();
+		} else {
+			return this.loggedInNav();
+		}
+	}
+
+	logOutButton() {}
 
 	render() {
 		return (
@@ -48,10 +77,7 @@ class NavBar extends Component {
 						<NavDropdown.Item href="#action/3.2">Python</NavDropdown.Item>
 					</NavDropdown>
 					<Nav className="mr-auto" />
-					<Nav>
-						<Nav.Link id="login-link" href="/login">Login</Nav.Link>
-						<Nav.Link href="/register">Register</Nav.Link>
-					</Nav>
+					{this.navAuth()}
 					<Form inline>
 						<FormControl type="text" placeholder="Search" className="mr-sm-2" />
 						<Button variant="outline-info">Search</Button>
