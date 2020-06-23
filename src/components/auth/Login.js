@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import './Auth.css';
-import LoginManager from '../../modules/LoginManager'
-import App from '../../App'
+import LoginManager from '../../modules/LoginManager';
+import App from '../../App';
 class Login extends Component {
 	// Initial state
 	state = {
@@ -17,23 +17,21 @@ class Login extends Component {
 	};
 
 	handleAuthChange = () => {
-		App.changeAuth()
-	}
+		App.changeAuth();
+	};
 
 	handleLogin = (e) => {
 		e.preventDefault();
-		LoginManager.authUser(this.state.email, this.state.password)
-		.then(user => {
-			if(user.length === 0){
-				window.alert('Invalid Login')
+		LoginManager.authUser(this.state.email, this.state.password).then((user) => {
+			if (user.length === 0) {
+				window.alert('Invalid Login');
+			} else {
+				localStorage.setItem('userId', user[0].id);
+				localStorage.setItem('userName', user[0].userName);
+				this.props.changeAuth();
+				this.props.history.goBack();
 			}
-			else{
-				localStorage.setItem("userId", user[0].id)
-				localStorage.setItem("userName", user[0].userName)
-				this.props.changeAuth()
-				this.props.history.push('/success')
-			}
-		})
+		});
 	};
 
 	render() {

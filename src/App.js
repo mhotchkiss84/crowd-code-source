@@ -8,8 +8,8 @@ class App extends Component {
 	};
 
 	componentDidMount() {
-        let user = parseInt(localStorage.userId, 10);
-        console.log(user)
+		let user = parseInt(localStorage.userId, 10);
+		console.log(user);
 		if (isNaN(user) === false) {
 			this.changeAuth();
 		}
