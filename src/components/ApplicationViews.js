@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import Home from './home/Home';
 import Login from './auth/Login';
 import Register from './auth/Register';
-import JavaScript from './languages/javascript/Javascript';
+import MainContent from './mainContent/MainContent'
 
 class ApplicationViews extends Component {
 	render() {
@@ -29,9 +29,9 @@ class ApplicationViews extends Component {
 					}}
 				/>
 				<Route
-					path="/javascript"
+					path="/languages/:languageName/:languageId"
 					render={(props) => {
-						return <JavaScript />;
+						return <MainContent categories={this.props.categories} languageId={parseInt(props.match.params.languageId)}{...props} />;
 					}}
 				/>
 			</React.Fragment>

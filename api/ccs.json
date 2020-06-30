@@ -28,23 +28,28 @@
   "languages": [
     {
       "id": 1,
-      "name": "javascript"
+      "name": "javascript",
+      "shortName": "javascript"
     },
     {
       "id": 2,
-      "name": "Python"
+      "name": "Python",
+      "shortName": "Python"
     },
     {
       "id": 3,
-      "name": "C++"
+      "name": "C++",
+      "shortName": "C++"
     },
     {
       "id": 4,
-      "name": "C#"
+      "name": "C Sharp",
+      "shortName": "C#"
     },
     {
       "id": 5,
-      "name": "CSS"
+      "name": "CSS",
+      "shortName": "CSS"
     }
   ],
   "frameworks": [
@@ -76,6 +81,10 @@
     {
       "id": 3,
       "name": "Variables"
+    },
+    {
+      "id": 4,
+      "name": "Math"
     }
   ],
   "posts": [
@@ -85,19 +94,43 @@
       "type": "function",
       "description": "splits stuff",
       "languageId": 1,
+      "url": "",
       "userId": 1,
       "frameworkId": "",
-      "categoryId": "1"
+      "categoryId": 1
     },
     {
       "id": 2,
       "name": ".pop()",
       "type": "function",
       "description": "pops stuff",
+      "url": "",
       "languageId": 1,
       "userId": 2,
       "frameworkId": "",
-      "categoryId": "1"
+      "categoryId": 1
+    },
+    {
+      "id": 3,
+      "name": "CodeAcademy",
+      "type": "resource",
+      "description": "Free learning resource w/ paid options",
+      "url": "www.codeacademy.com",
+      "languageId": 1,
+      "userId": 2,
+      "frameworkId": "",
+      "categoryId": ""
+    },
+    {
+      "id": 4,
+      "name": ".random()",
+      "type": "function",
+      "description": "Random number",
+      "url": "",
+      "languageId": 1,
+      "userId": 2,
+      "frameworkId": "",
+      "categoryId": 4
     }
   ],
   "starredPosts": [
