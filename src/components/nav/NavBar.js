@@ -11,7 +11,9 @@ import {
 	ButtonGroup
 } from 'react-bootstrap';
 import './NavBar.css';
+import NavItem from './NavItem'
 class NavBar extends Component {
+
 	loggedOutNav() {
 		return (
 			<Nav>
@@ -31,7 +33,7 @@ class NavBar extends Component {
 				<Nav.Link id="register-link" href="#">
 					{localStorage.userName}
 				</Nav.Link>
-				<Nav.Link id="login-link" href="/" onClick={() => localStorage.clear()}>
+				<Nav.Link id="login-link" href={'/login'} onClick={() => localStorage.clear()}>
 					Logout
 				</Nav.Link>
 			</Nav>
@@ -47,23 +49,20 @@ class NavBar extends Component {
 		}
 	}
 
-	logOutButton() {}
-
 	render() {
 		return (
 			<React.Fragment>
 				<Navbar bg="dark" variant="dark" sticky="top">
 					<Navbar.Brand href="/">Code Source</Navbar.Brand>
 					<NavDropdown title="Language" id="basic-nav-dropdown">
-						<NavDropdown.Item href="/csharp">C#</NavDropdown.Item>
-						<NavDropdown.Item href="/cplusplus">C++</NavDropdown.Item>
-						<NavDropdown.Item href="/javascript">javascript</NavDropdown.Item>
+						{this.props.languages.map(language =>
+							<NavItem key={language.id}language={language}/>)}
 					</NavDropdown>
 					<NavDropdown title="Framework" id="collasible-nav-dropdown">
 						<div className="mb-2 nav-dropdown">
 							<DropdownButton
 								className="nav-dropdown"
-								as={ButtonGroup}
+								as={ButtonGroup}   
 								key={'right'}
 								id={`dropdown-button-drop-right`}
 								drop={'right'}
