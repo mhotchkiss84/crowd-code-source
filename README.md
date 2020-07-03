@@ -19,7 +19,7 @@ You will need two terminal/bash windows open. One to run the npm start for the R
 run:
 ### `json-server -p 5002 -w ccs.json`
 ### In the second terminal
-- cd into crowd-code source
+- cd into crowd-code-source
 run:
 ### `npm start`
 ### In browser
