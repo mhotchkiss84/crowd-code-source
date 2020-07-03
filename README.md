@@ -15,16 +15,11 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Running
 You will need to terminal/bash windows open. One to run the npm start for the React project, and the other to run json-server
 In the first terminal
--cd into crowd-code-source/api
+- cd into crowd-code-source/api
 run:
-json-server -p 5002 -w ccs.json
+### `json-server -p 5002 -w ccs.json`
 In the second terminal
--cd into crowd-code source
+- cd into crowd-code source
 run:
 ### `npm start`
-
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+- Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
