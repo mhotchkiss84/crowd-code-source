@@ -1,23 +1,47 @@
 import React, { Component } from 'react';
 import './MainContent.css';
 import ReactDOM from 'react-dom';
-import EditForm from './EditForm'
+import EditForm from './EditForm';
+import DetailView from './DetailView';
+import ContentManager from '../../modules/ContentManager';
 
 class MainContentCard extends Component {
 	state = {
 		showEditForm: false,
-		postToEdit: {}
+		postToEdit: {},
+		showDetailView: false,
+		detailView: {}
+	};
+
+	clearDetailView = () => {
+		this.clearRender();
+		this.setState({ showDetailView: false });
+		this.clearRender();
+	};
+
+	toggleDetailView = () => {
+		this.clearRender();
+		this.hideEditForm()
+		this.setState({showEditForm: false})
+		this.props.hideNewForm()
+		this.setState({ showDetailView: true });
+		let postToShow = this.buildPostToEdit();
+		this.setState({ detailView: postToShow });
+		let postToEdit = this.buildPostToEdit();
+		this.setState({ postToEdit: postToEdit });
 	};
 
 	toggleEditForm = () => {
-		if (this.state.showEditForm === false) {
-			this.setState({ showEditForm: true });
-			let postToEdit = this.buildPostToEdit();
-			this.setState({ postToEdit: postToEdit });
-		} else {
-			this.setState({ showEditForm: false });
-			this.clearRender()
-		}
+		this.clearRender();
+		this.props.hideNewForm()
+		this.setState({ showEditForm: true });
+		let postToEdit = this.buildPostToEdit();
+		this.setState({ postToEdit: postToEdit });
+	};
+
+	hideEditForm = () => {
+		this.setState({ showEditForm: false });
+		this.clearRender();
 	};
 
 	buildPostToEdit = () => {
@@ -29,18 +53,56 @@ class MainContentCard extends Component {
 		};
 	};
 
-	testRender() {
-	return ReactDOM.render(
-		<EditForm languageId={this.props.languageId} toggleEditForm={this.toggleEditForm} refresh={this.props.refresh} postCategoryId={this.props.postCategoryId} categories={this.props.categories} postToEdit={this.state.postToEdit}/>,
-		document.getElementById('center-output')
-	);
-	}
-
-	clearRender(){
+	editRender() {
+		this.clearRender();
 		return ReactDOM.render(
-			<p/>,
+			<EditForm
+				hideEditForm={this.hideEditForm}
+				languageId={this.props.languageId}
+				toggleEditForm={this.toggleEditForm}
+				refresh={this.props.refresh}
+				postCategoryId={this.props.postCategoryId}
+				categories={this.props.categories}
+				postToEdit={this.state.postToEdit}
+				toggleDetailView={this.toggleDetailView}
+				deletePost={this.deletePost}
+			/>,
 			document.getElementById('center-output')
 		);
+	}
+
+	detailRender() {
+		this.clearRender();
+		return ReactDOM.render(
+			<DetailView
+				languageId={this.props.languageId}
+				toggleDetailView={this.toggleDetailView}
+				refresh={this.props.refresh}
+				postCategoryId={this.props.postCategoryId}
+				categories={this.props.categories}
+				detailView={this.state.detailView}
+				userName={this.props.userName}
+				toggleEditForm={this.toggleEditForm}
+				userId={this.props.userId}
+				clearDetailView={this.clearDetailView}
+				deletePost={this.deletePost}
+				postId={this.props.postId}
+			/>,
+			document.getElementById('center-output')
+		);
+	}
+	deletePost = () => {
+		ContentManager.delete(this.props.postId).then(() => {
+			this.setState({ showEditForm: false });
+			this.setState({ showDetailView: false });
+			this.clearDetailView();
+			this.props.refresh();
+			this.clearRender();
+		});
+	};
+
+	clearRender() {
+		return ReactDOM.render(<p />, document.getElementById('center-output'));
 	}
 
 	render() {
@@ -50,15 +112,23 @@ class MainContentCard extends Component {
 			if (user === this.props.userId) showEdit = true;
 		}
 
-		if(this.state.showEditForm === true){
-			this.testRender()
+		if (this.state.showEditForm === true) {
+			// this.clearDetailView();
+			// this.clearRender();
+			this.editRender();
+		}
+
+		if (this.state.showDetailView === true) {
+			this.clearDetailView();
+			this.clearRender();
+			this.detailRender();
 		}
 
 		return (
 			<React.Fragment>
-				<a id="post-heading" href="#">
+				<a id="post-heading" onClick={this.toggleDetailView} href="#">
 					{this.props.postTitle}
-				</a>
+				</a><br/>
 				<a href="#">{`Posted by ${this.props.userName}`}</a>
 				<p id="post-content">
 					{`${this.props.content}`}{' '}

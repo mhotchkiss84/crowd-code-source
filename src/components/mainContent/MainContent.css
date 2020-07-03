@@ -13,8 +13,10 @@
     /* width: 20vw; */
 }
 #latest-posts-card{
-    display: flex;
-    flex-direction: column;
+    /* display: flex;
+    flex-direction: column; */
+    height: 25vh;
+    overflow: auto;
 }
 #reference-card{
     margin-top: 2em;
@@ -56,4 +58,7 @@
 }
 #edit-post-link a{
     margin-left: 1em;
+}
+#detail-view{
+    margin-top: 4em;
 }

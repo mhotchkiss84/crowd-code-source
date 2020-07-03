@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Form, Button } from 'react-bootstrap';
-import ContentManager from '../../modules/ContentManager'
+import ContentManager from '../../modules/ContentManager';
 
 class EditForm extends Component {
 	state = {
@@ -41,30 +41,28 @@ class EditForm extends Component {
 	updatePost = (evt) => {
 		let editCategoryId = '';
 		this.props.categories.map((category) => {
-			if(category.name === this.state.editPostCategory){
-				editCategoryId = category.id
+			if (category.name === this.state.editPostCategory) {
+				editCategoryId = category.id;
 			}
-		})
+		});
 		evt.preventDefault();
 		this.setState({ loadingStatus: true });
-		
+
 		const editedPost = {
 			id: this.props.postToEdit.id,
 			name: this.state.editPostTitle,
 			description: this.state.editPostDescription,
 			categoryId: editCategoryId,
-			type: "function",
+			type: 'function',
 			userId: localStorage.userId,
 			languageId: this.props.languageId
 		};
 
 		ContentManager.update(editedPost).then(() => {
-			this.props.toggleEditForm()
-			this.props.refresh()
+			this.props.toggleEditForm();
+			this.props.refresh();
 		});
 	};
-
-	
 
 	render() {
 		return (
@@ -105,9 +103,12 @@ class EditForm extends Component {
 				<Button variant="primary" type="submit">
 					Submit
 				</Button>
-				<Button variant="secondary" type="button" onClick={this.props.toggleEditForm}>
+				<Button variant="secondary" type="button" onClick={this.props.hideEditForm}>
 					Cancel
 				</Button>
+				<Button variant="danger" onClick={() => this.props.deletePost(this.props.postId)}>
+							Delete
+						</Button>
 			</Form>
 		);
 	}

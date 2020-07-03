@@ -94,9 +94,8 @@
       "type": "function",
       "description": "splits stuff",
       "languageId": 1,
+      "userId": 2,
       "url": "",
-      "userId": 1,
-      "frameworkId": "",
       "categoryId": 1
     },
     {
@@ -107,7 +106,6 @@
       "url": "",
       "languageId": 1,
       "userId": 2,
-      "frameworkId": "",
       "categoryId": 1
     },
     {
@@ -118,8 +116,7 @@
       "url": "www.codeacademy.com",
       "languageId": 1,
       "userId": 2,
-      "frameworkId": "",
-      "categoryId": ""
+      "categoryId": 1
     },
     {
       "id": 4,
@@ -129,8 +126,16 @@
       "url": "",
       "languageId": 1,
       "userId": 2,
-      "frameworkId": "",
       "categoryId": 4
+    },
+    {
+      "name": "Everything works now?",
+      "categoryId": 3,
+      "description": "What?",
+      "userId": "1",
+      "languageId": 1,
+      "type": "function",
+      "id": 5
     }
   ],
   "starredPosts": [

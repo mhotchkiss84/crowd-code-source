@@ -29,7 +29,7 @@ export default {
 		}).then((data) => data.json());
 	},
 	delete(id) {
-		return fetch(`http://localhost:5002/posts/${id}`, {
+		return fetch(`${remoteURL}/posts/${id}`, {
 			method: 'DELETE'
 		}).then((result) => result.json());
 	}

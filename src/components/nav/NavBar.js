@@ -58,7 +58,7 @@ class NavBar extends Component {
 						{this.props.languages.map(language =>
 							<NavItem key={language.id}language={language}/>)}
 					</NavDropdown>
-					<NavDropdown title="Framework" id="collasible-nav-dropdown">
+					{/* <NavDropdown title="Framework" id="collasible-nav-dropdown">
 						<div className="mb-2 nav-dropdown">
 							<DropdownButton
 								className="nav-dropdown"
@@ -74,7 +74,7 @@ class NavBar extends Component {
 							</DropdownButton>
 						</div>
 						<NavDropdown.Item href="#action/3.2">Python</NavDropdown.Item>
-					</NavDropdown>
+					</NavDropdown> */}
 					<Nav className="mr-auto" />
 					{this.navAuth()}
 					<Form inline>

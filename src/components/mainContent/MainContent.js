@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 import ContentManager from '../../modules/ContentManager';
 import MainContentCard from './MainContentCard';
 import { DropdownButton, ButtonGroup, Button, Dropdown, Form } from 'react-bootstrap';
 import Filter from '../filter/Filter';
-import FormJSX from './FormJSX'
+import FormJSX from './FormJSX';
 
 class MainContent extends Component {
 	state = {
@@ -39,25 +40,33 @@ class MainContent extends Component {
 		}
 	};
 
+	clearRender() {
+		return ReactDOM.render(<p />, document.getElementById('center-output'));
+	}
+
 	toggleForm = () => {
-		if (this.state.formToggle === false) {
-			this.setState({ formToggle: true });
-		} else {
-			this.setState({ formToggle: false });
-		}
+		this.clearRender()
+		this.setState({ formToggle: true });
+	};
+
+	hideNewForm = () => {
+		this.clearRender()
+		this.setState({formToggle: false})
 	}
 
 	refreshPage = () => {
-		this.setState({formToggle: false})
+		this.setState({ formToggle: false });
 		ContentManager.getPostsByLanguageId(this.props.languageId).then((posts) => {
 			this.setState({
 				posts: posts
 			});
 		});
-	}
+	};
 
-	formJSX = () => { 
+	formJSX = () => {
+		this.clearRender()
 		if (this.state.formToggle === true) {
+			this.clearRender()
 			return (
 				<Form>
 					<Form.Group controlId="formBasicEmail">
@@ -78,21 +87,21 @@ class MainContent extends Component {
 				</Form>
 			);
 		}
-	}
+	};
 	loadedJSX() {
-		let user = parseInt(localStorage.userId, 10)
-		let isLoggedIn = false
-		if(isNaN(user) == false){
-			isLoggedIn = true
+		let user = parseInt(localStorage.userId, 10);
+		let isLoggedIn = false;
+		if (isNaN(user) == false) {
+			isLoggedIn = true;
 		}
 		const variant = 'Secondary';
-		let filter = false
-		if(this.state.postsToRender.length !== undefined){
-			filter = true
+		let filter = false;
+		if (this.state.postsToRender.length !== undefined) {
+			filter = true;
 		}
-		let posts = this.state.posts
-		if(filter === true){
-			posts = this.state.postsToRender
+		let posts = this.state.posts;
+		if (filter === true) {
+			posts = this.state.postsToRender;
 		}
 		return (
 			<React.Fragment>
@@ -121,38 +130,48 @@ class MainContent extends Component {
 									/>
 								))}
 							</DropdownButton>
-							
-							{isLoggedIn
-							?
-							<Button variant="secondary" size="sm" onClick={this.toggleForm}>
-							+
-						</Button>
-							: <p></p>
-							}
+
+							{isLoggedIn ? (
+								<Button variant="secondary" size="sm" onClick={this.toggleForm}>
+									+
+								</Button>
+							) : (
+								<p />
+							)}
 						</div>
 						<div id="main-function-posts">
-						{posts.map((post) => {
-							if (post.type === 'function') {
-								return (
-									<MainContentCard
-										refresh={this.refreshPage}
-										key={post.id}
-										postTitle={post.name}
-										postId={post.id}
-										content={post.description}
-										userId={post.user.id}
-										userName={post.user.userName}
-										postCategoryId={post.categoryId}
-										categories={this.props.categories}
-										languageId={this.props.languageId}
-									/>
-								);
-							}
-						})}
+							{posts.map((post) => {
+								if (post.type === 'function') {
+									return (
+										<MainContentCard
+											hideNewForm={this.hideNewForm}
+											refresh={this.refreshPage}
+											key={post.id}
+											postTitle={post.name}
+											postId={post.id}
+											content={post.description}
+											userId={post.user.id}
+											userName={post.user.userName}
+											postCategoryId={post.categoryId}
+											categories={this.props.categories}
+											languageId={this.props.languageId}
+											toggleForm={this.toggleForm}
+										/>
+									);
+								}
+							})}
 						</div>
 					</div>
 					{/* Center Div */}
-					<div id="center-output"><FormJSX categories={this.props.categories} language={this.state.language} toggle={this.state.formToggle} formToggle={this.toggleForm}  refresh={this.refreshPage}/></div>
+					<div id="center-output">
+						<FormJSX
+							categories={this.props.categories}
+							language={this.state.language}
+							toggle={this.state.formToggle}
+							formToggle={this.hideNewForm}
+							refresh={this.refreshPage}
+						/>
+					</div>
 					{/* Right Div */}
 					<div id="latest-posts-card">
 						<h4 id="latest-post-title">Latest Post</h4>
@@ -190,7 +209,6 @@ class MainContent extends Component {
 	}
 
 	render() {
-
 		if (this.state.posts.length !== 0) {
 			return this.loadedJSX();
 		} else {
