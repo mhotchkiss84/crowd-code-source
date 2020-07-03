@@ -9,7 +9,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - clone with:
 ### `git clone https://github.com/mhotchkiss84/crowd-code-source.git`
 - cd into crowd-code-source
-- run npm install in your terminal/bash window (this will install all the npm packages used for the bootstrap and React. 
+- run:
+### `npm install` 
+- in your terminal/bash window (this will install all the npm packages used for the bootstrap and React. 
 
 ## Running
 You will need to terminal/bash windows open. One to run the npm start for the React project, and the other to run json-server
