@@ -1,7 +1,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Requirements
--npm (Node.js https://nodejs.org/en/)
+- npm (Node.js https://nodejs.org/en/)
 - json-server (https://github.com/typicode/json-server)
 
 ## Installation
