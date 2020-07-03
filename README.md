@@ -9,7 +9,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - clone with:
 ### `git clone https://github.com/mhotchkiss84/crowd-code-source.git`
 - cd into crowd-code-source
-- run npm install in your terminal/bash window (this will install all the npm packages used for the bootstrap and React. 
+- run npm install in your terminal/bash window (this will install all the npm packages used for the bootstrap and React). 
 ### `npm install` 
  
 ## Running
