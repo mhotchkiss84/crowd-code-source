@@ -13,7 +13,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ### `npm install` 
  
 ## Running
-You will need to terminal/bash windows open. One to run the npm start for the React project, and the other to run json-server
+You will need two terminal/bash windows open. One to run the npm start for the React project, and the other to run json-server
 ### In the first terminal
 - cd into crowd-code-source/api
 run:
